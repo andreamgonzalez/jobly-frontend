@@ -1,25 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import NavBar from "./routes-nav/NavBar";
+import Routes from "./routes-nav/Routes";
+import UserContext from "./auth/UserContext";
+import JoblyApi from "./api/api";
+import jwt from "jsonwebtoken";
+import Home from './home/home';
+
+
+// Key name for storing token in localStorage for "remember me" re-login
+export const TOKEN_STORAGE_ID = "jobly-token";
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <UserContext.Provider
+          value="">
+        <div className="App">
+          <NavBar />
+          <Home></Home>
+        </div>
+      </UserContext.Provider>
+    </BrowserRouter>
+);
 }
 
 export default App;
