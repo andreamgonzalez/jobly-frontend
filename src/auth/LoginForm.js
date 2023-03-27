@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import "./LoginForm.css"
 
 /** Login form.
  *
@@ -30,9 +31,9 @@ function LoginForm({login}){
     async function handleSubmit(evt) {
         evt.preventDefault();
         let result = await login(formData);
-        if (result.success) {
+        // if (result.success) {
             history.push("/companies");
-        } 
+        // } 
     };
 
     return(
@@ -42,13 +43,15 @@ function LoginForm({login}){
                 <div className="card">
                     <div className="card-body">
                     <form onSubmit={handleSubmit}>
-                        <div>
+                        <div className="input-item">
+                            <label>Username</label>
                             <input onChange={handleChange} className="form-control" type="text" name="username" value={formData.username} id="username" required/>
                         </div>
-                        <div>
+                        <div className="input-item">
+                            <label>Password</label>
                             <input onChange={handleChange} className="form-control" type="password" name="password" value={formData.password} id="password" required/>
                         </div>
-                        <button id="loginButton" onSubmit={handleSubmit}>Log in</button>
+                        <button className="btn btn-primary btn-sm" id="loginButton" onSubmit={handleSubmit}>Log in</button>
                     </form>
                     </div>
                 </div>

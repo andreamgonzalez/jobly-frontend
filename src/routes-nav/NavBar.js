@@ -12,7 +12,7 @@ import "./NavBar.css";
  * Rendered by App.
  */
 
-function NavBar() {
+function NavBar({ logout }) {
   const { currentUser } = useContext(UserContext);
 
   function loggedInNav() {
@@ -34,7 +34,7 @@ function NavBar() {
         </NavLink>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/">
+        <Link className="nav-link" to="/" onClick={logout}>
           Log out
         </Link>
       </li>

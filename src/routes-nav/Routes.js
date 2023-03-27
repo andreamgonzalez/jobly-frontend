@@ -3,6 +3,11 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "../home/Home";
 import LoginForm from "../auth/LoginForm";
 import PrivateRoute from "./PrivateRoute";
+import SignupForm from "../auth/SignupForm";
+import CompanyList from "../companies/CompanyList";
+import JobList from "../jobs/JobList";
+import CompanyDetail from "../companies/CompanyDetail";
+import ProfileForm from "../profiles/ProfileForm";
 
 
 function Routes( {login, signup} ){
@@ -20,23 +25,23 @@ function Routes( {login, signup} ){
             </Route>
   
             <Route exact path="/signup">
-              {/* <SignupForm signup={signup} /> */}
+              <SignupForm signup={signup} />
             </Route>
   
             <PrivateRoute exact path="/companies">
-              {/* <CompanyList /> */}
+              <CompanyList />
             </PrivateRoute>
   
             <PrivateRoute exact path="/jobs">
-              {/* <JobList /> */}
+              <JobList />
             </PrivateRoute>
   
             <PrivateRoute exact path="/companies/:handle">
-              {/* <CompanyDetail /> */}
+              <CompanyDetail />
             </PrivateRoute>
   
             <PrivateRoute path="/profile">
-              {/* <ProfileForm /> */}
+              <ProfileForm />
             </PrivateRoute>
   
             <Redirect to="/" />
